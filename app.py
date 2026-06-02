@@ -336,12 +336,19 @@ with st.sidebar:
             ["Morning (6-11am)","Afternoon (12-5pm)",
              "Evening (6-9pm)","Night (10pm+)"]
         )
+        quantity = st.slider(
+            "How much did you eat? 🍽️",
+            min_value=0.5, max_value=3.0,
+            value=1.0, step=0.5,
+            format="%.1fx serving"
+        )
         save_log = st.checkbox("Save to my meal log 📓", value=True)
         predict_btn = st.button("Predict My Mood →")
     else:
         predict_btn = False
         meal_input  = ""
         time_of_day = "Afternoon (12-5pm)"
+        quantity    = 1.0
 
     st.divider()
     st.markdown("<p style='font-size:0.72rem;color:#f9a8d4'>💜 Powered by Gradient Boosting ML<br>🌸 58 foods · 17 features · 74.7% accuracy</p>",
@@ -389,6 +396,12 @@ if page == "🔮 Predict":
         if result is None:
             st.error(f"Sorry, I do not recognise any foods in '{meal_input}'. Try: chicken, rice, eggs, biryani, dal, pizza...")
             st.stop()
+
+        # Scale by quantity
+        if quantity != 1.0:
+            for key in result["nutrition"]:
+                result["nutrition"][key] = round(
+                    result["nutrition"][key] * quantity, 1)
 
         if save_log:
             save_to_log(meal_input.strip(), result, time_of_day)

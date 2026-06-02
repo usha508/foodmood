@@ -317,7 +317,7 @@ def time_mood_chart(df):
 # ── Sidebar
 with st.sidebar:
     st.markdown("## 🌸 FoodMood 💕")
-    st.markdown("<p style=\'font-size:0.75rem;color:#f9a8d4;letter-spacing:0.1em\'>✨ PREDICT YOUR MOOD AFTER EATING ✨</p>",
+    st.markdown("<p style='font-size:0.75rem;color:#f9a8d4;letter-spacing:0.1em'>✨ PREDICT YOUR MOOD AFTER EATING ✨</p>",
                 unsafe_allow_html=True)
     st.divider()
 
@@ -344,7 +344,7 @@ with st.sidebar:
         time_of_day = "Afternoon (12-5pm)"
 
     st.divider()
-    st.markdown("<p style=\'font-size:0.72rem;color:#f9a8d4\'>💜 Powered by Gradient Boosting ML<br>🌸 58 foods · 17 features · 74.7% accuracy</p>",
+    st.markdown("<p style='font-size:0.72rem;color:#f9a8d4'>💜 Powered by Gradient Boosting ML<br>🌸 58 foods · 17 features · 74.7% accuracy</p>",
                 unsafe_allow_html=True)
 
 # ════════════════════════════════════════
@@ -363,10 +363,10 @@ if page == "🔮 Predict":
             (c3, "😊⚖️", "Balanced & Alert", "#a8f0c8", "Well-balanced meals keep you focused and calm"),
         ]:
             with col:
-                st.markdown(f"""<div class=\'stat-box\'>
-                    <div style=\'font-size:2rem\'>{emoji}</div>
-                    <div style=\'font-weight:600;color:{color};margin:6px 0\'>{label}</div>
-                    <div style=\'font-size:0.8rem;opacity:0.7\'>{desc}</div>
+                st.markdown(f"""<div class='stat-box'>
+                    <div style='font-size:2rem'>{emoji}</div>
+                    <div style='font-weight:600;color:{color};margin:6px 0'>{label}</div>
+                    <div style='font-size:0.8rem;opacity:0.7'>{desc}</div>
                 </div>""", unsafe_allow_html=True)
 
         st.markdown("---")
@@ -376,7 +376,7 @@ if page == "🔮 Predict":
         cols = st.columns(3)
         for i, ex in enumerate(examples):
             with cols[i%3]:
-                st.markdown(f"<div class=\'tip-box\'>🍽️ {ex}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div class='tip-box'>🍽️ {ex}</div>", unsafe_allow_html=True)
 
     else:
         if not meal_input.strip():
@@ -387,7 +387,7 @@ if page == "🔮 Predict":
             result = pipeline.predict_mood(meal_input.strip(), model, feature_cols)
 
         if result is None:
-            st.error(f"Sorry, I do not recognise any foods in \'{meal_input}\'. Try: chicken, rice, eggs, biryani, dal, pizza...")
+            st.error(f"Sorry, I do not recognise any foods in '{meal_input}'. Try: chicken, rice, eggs, biryani, dal, pizza...")
             st.stop()
 
         if save_log:
@@ -400,24 +400,24 @@ if page == "🔮 Predict":
         nutrition  = result["nutrition"]
 
         st.markdown(f"## 🍽️ Prediction for: {meal_input[:50]}{'...' if len(meal_input)>50 else ''}")
-        st.markdown(f"<p style=\'font-size:0.75rem;color:#f9a8d4;letter-spacing:0.05em\'>{time_of_day} · {nutrition[\'calories\']:.0f} KCAL</p>",
-                    unsafe_allow_html=True)
+        st.markdown("<p style='font-size:0.75rem;color:#f9a8d4'>" + time_of_day + " · " + str(int(nutrition['calories'])) + " KCAL</p>", unsafe_allow_html=True)
+
         st.markdown("")
 
         left, right = st.columns([1, 1.5])
 
         with left:
             bg = MOOD_BG.get(mood_label, MOOD_BG["Balanced & Alert"])
-            st.markdown(f"""<div class=\'mood-card\' style=\'background:{bg}\'>
-                <p style=\'font-size:0.72rem;color:#f9a8d4;letter-spacing:0.1em;margin:0\'>IN ~2 HOURS YOU WILL FEEL</p>
-                <div style=\'font-size:3.5rem;line-height:1.2;margin:8px 0\'>{mood_emoji}</div>
-                <div style=\'font-size:1.6rem;font-weight:700;color:{mood_color};font-family:DM Serif Display,serif\'>{mood_label}</div>
-                <p style=\'color:#f9a8d4;font-size:0.85rem;margin-top:8px\'>{confidence}% confidence</p>
+            st.markdown(f"""<div class='mood-card' style='background:{bg}'>
+                <p style='font-size:0.72rem;color:#f9a8d4;letter-spacing:0.1em;margin:0'>IN ~2 HOURS YOU WILL FEEL</p>
+                <div style='font-size:3.5rem;line-height:1.2;margin:8px 0'>{mood_emoji}</div>
+                <div style='font-size:1.6rem;font-weight:700;color:{mood_color};font-family:DM Serif Display,serif'>{mood_label}</div>
+                <p style='color:#f9a8d4;font-size:0.85rem;margin-top:8px'>{confidence}% confidence</p>
             </div>""", unsafe_allow_html=True)
 
             st.markdown("#### 💖 What to do")
             for tip in TIPS.get(mood_label, [])[:3]:
-                st.markdown(f"<div class=\'tip-box\'>{tip}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div class='tip-box'>{tip}</div>", unsafe_allow_html=True)
 
         with right:
             st.markdown("#### 🍽️ Nutrition Breakdown ✨")
@@ -429,29 +429,29 @@ if page == "🔮 Predict":
             for col, label, val in zip(
                 [s1,s2,s3,s4],
                 ["Calories","Protein","Sugar","Fat"],
-                [f"{nutrition[\'calories\']:.0f}",
-                 f"{nutrition[\'protein\']:.0f}g",
-                 f"{nutrition[\'sugar\']:.0f}g",
-                 f"{nutrition[\'fat\']:.0f}g"]
+                [f"{nutrition['calories']:.0f}",
+                 f"{nutrition['protein']:.0f}g",
+                 f"{nutrition['sugar']:.0f}g",
+                 f"{nutrition['fat']:.0f}g"]
             ):
                 with col:
-                    st.markdown(f"""<div class=\'stat-box\'>
-                        <div style=\'font-size:1.3rem;font-weight:700;color:#f472b6\'>{val}</div>
-                        <div style=\'font-size:0.75rem;color:#f9a8d4\'>{label}</div>
+                    st.markdown(f"""<div class='stat-box'>
+                        <div style='font-size:1.3rem;font-weight:700;color:#f472b6'>{val}</div>
+                        <div style='font-size:0.75rem;color:#f9a8d4'>{label}</div>
                     </div>""", unsafe_allow_html=True)
 
         with st.expander("🔬 See what the ML model used to predict this"):
             features = result["features"]
             f1,f2,f3,f4 = st.columns(4)
             feature_display = [
-                ("Protein ratio",    f"{features[\'protein_ratio\']*100:.1f}%"),
-                ("Sugar ratio",      f"{features[\'sugar_ratio\']*100:.1f}%"),
-                ("Fat ratio",        f"{features[\'fat_ratio\']*100:.1f}%"),
-                ("Balance score",    f"{features[\'balance_score\']:.2f}"),
-                ("Meal heaviness",   ["Light","Medium","Heavy"][int(features[\'meal_heaviness\'])]),
-                ("High sugar",       "Yes" if features[\'high_sugar\'] else "No"),
-                ("High protein",     "Yes" if features[\'high_protein\'] else "No"),
-                ("Heavy meal",       "Yes" if features[\'heavy_meal\'] else "No"),
+                ("Protein ratio",    f"{features['protein_ratio']*100:.1f}%"),
+                ("Sugar ratio",      f"{features['sugar_ratio']*100:.1f}%"),
+                ("Fat ratio",        f"{features['fat_ratio']*100:.1f}%"),
+                ("Balance score",    f"{features['balance_score']:.2f}"),
+                ("Meal heaviness",   ["Light","Medium","Heavy"][int(features['meal_heaviness'])]),
+                ("High sugar",       "Yes" if features['high_sugar'] else "No"),
+                ("High protein",     "Yes" if features['high_protein'] else "No"),
+                ("Heavy meal",       "Yes" if features['heavy_meal'] else "No"),
             ]
             for i,(name,val) in enumerate(feature_display):
                 with [f1,f2,f3,f4][i%4]:
@@ -468,7 +468,7 @@ elif page == "📊 My Patterns":
         st.markdown("### No meals logged yet 🌸")
         st.markdown("Go to **🔮 Predict**, make some predictions with **Save to my meal log** ticked, and come back here!")
         st.markdown("")
-        st.markdown("<div class=\'tip-box\'>💡 Log at least 5 meals to see meaningful patterns</div>",
+        st.markdown("<div class='tip-box'>💡 Log at least 5 meals to see meaningful patterns</div>",
                     unsafe_allow_html=True)
     else:
         total  = len(df)
@@ -489,9 +489,9 @@ elif page == "📊 My Patterns":
             (m4, "Avg Calories",  f"{avg_cal:.0f}",    "#e879f9"),
         ]:
             with col:
-                st.markdown(f"""<div class=\'stat-box\'>
-                    <div style=\'font-size:1.6rem;font-weight:700;color:{color}\'>{val}</div>
-                    <div style=\'font-size:0.8rem;color:#f9a8d4\'>{label}</div>
+                st.markdown(f"""<div class='stat-box'>
+                    <div style='font-size:1.6rem;font-weight:700;color:{color}'>{val}</div>
+                    <div style='font-size:0.8rem;color:#f9a8d4'>{label}</div>
                 </div>""", unsafe_allow_html=True)
 
         st.markdown("")
@@ -518,17 +518,17 @@ elif page == "📊 My Patterns":
         # Personal insights
         st.markdown("#### 💡 Your Personal Insights")
         if crash > bal:
-            st.markdown("<div class=\'insight-card\'>⚡ You have more Energy Crashes than Balanced meals. Try adding more protein to your meals and reducing sugary drinks.</div>",
+            st.markdown("<div class='insight-card'>⚡ You have more Energy Crashes than Balanced meals. Try adding more protein to your meals and reducing sugary drinks.</div>",
                         unsafe_allow_html=True)
         if bal > (total * 0.5):
-            st.markdown("<div class=\'insight-card\'>🌸 Over half your meals are Balanced — great eating habits! Keep it up.</div>",
+            st.markdown("<div class='insight-card'>🌸 Over half your meals are Balanced — great eating habits! Keep it up.</div>",
                         unsafe_allow_html=True)
         if avg_cal > 600:
-            st.markdown("<div class=\'insight-card\'>🍽️ Your average meal is quite heavy ({}kcal). Consider lighter lunches to avoid afternoon sluggishness.</div>".format(int(avg_cal)),
+            st.markdown("<div class='insight-card'>🍽️ Your average meal is quite heavy ({}kcal). Consider lighter lunches to avoid afternoon sluggishness.</div>".format(int(avg_cal)),
                         unsafe_allow_html=True)
         top_crash = df[df["mood_label"]=="Energy Crash"]["meal"].value_counts()
         if not top_crash.empty:
-            st.markdown(f"<div class=\'insight-card\'>🔴 Your most common crash meal: <b>{top_crash.index[0]}</b>. Try swapping for a lower-sugar alternative.</div>",
+            st.markdown(f"<div class='insight-card'>🔴 Your most common crash meal: <b>{top_crash.index[0]}</b>. Try swapping for a lower-sugar alternative.</div>",
                         unsafe_allow_html=True)
 
         # Recent meals log
@@ -536,11 +536,11 @@ elif page == "📊 My Patterns":
         for _, row in df.tail(8).iloc[::-1].iterrows():
             emoji = {"Energy Crash":"⚡💥","Sluggish":"😴🌀","Balanced & Alert":"😊⚖️"}.get(row["mood_label"],"😊")
             color = {"Energy Crash":"#f472b6","Sluggish":"#e879f9","Balanced & Alert":"#a8f0c8"}.get(row["mood_label"],"#f9a8d4")
-            st.markdown(f"""<div class=\'log-row\'>
-                <span style=\'color:{color};font-weight:600\'>{emoji} {row[\'mood_label\']}</span>
-                &nbsp;·&nbsp; <b>{str(row[\'meal\'])[:45]}</b>
-                &nbsp;·&nbsp; {row[\'calories\']:.0f} kcal
-                &nbsp;·&nbsp; <span style=\'opacity:0.55\'>{row[\'timestamp\']}</span>
+            st.markdown(f"""<div class='log-row'>
+                <span style='color:{color};font-weight:600'>{emoji} {row['mood_label']}</span>
+                &nbsp;·&nbsp; <b>{str(row['meal'])[:45]}</b>
+                &nbsp;·&nbsp; {row['calories']:.0f} kcal
+                &nbsp;·&nbsp; <span style='opacity:0.55'>{row['timestamp']}</span>
             </div>""", unsafe_allow_html=True)
 
         # Clear log button
@@ -560,7 +560,7 @@ elif page == "💡 Eating Tips":
 
     for time_label, tip in TIME_TIPS.items():
         st.markdown(f"### {time_label}")
-        st.markdown(f"<div class=\'tip-box\'>{tip}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='tip-box'>{tip}</div>", unsafe_allow_html=True)
         st.markdown("")
 
     st.markdown("---")
@@ -584,7 +584,7 @@ elif page == "💡 Eating Tips":
     col1, col2 = st.columns(2)
     for i, (title, body) in enumerate(rules):
         with (col1 if i%2==0 else col2):
-            st.markdown(f"""<div class=\'insight-card\'>
-                <b style=\'color:#f472b6\'>{title}</b>
-                <p style=\'margin:6px 0 0;font-size:0.88rem;color:#f5e6ff\'>{body}</p>
+            st.markdown(f"""<div class='insight-card'>
+                <b style='color:#f472b6'>{title}</b>
+                <p style='margin:6px 0 0;font-size:0.88rem;color:#f5e6ff'>{body}</p>
             </div>""", unsafe_allow_html=True)

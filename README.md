@@ -276,28 +276,28 @@ MIT License : free to use, modify, and build upon with attribution.
 ![Home](images/homescreen.png)
 
 ### Prediction — Form & Result
-![Prediction](images/prediction%20form.png)
+![Prediction](images/prediction_form.png)
 
 ### Prediction — Nutrition Breakdown
-![Nutrition](images/prediction%20nutrition.png)
+![Nutrition](images/prediction_nutrition.png)
 
 ### Prediction — Why This Prediction?
-![Factors](images/prediction%20factors.png)
+![Factors](images/prediction_factors.png)
 
 ### Prediction — ML Features
-![ML Features](images/prediction%20MLfeatures.png)
+![ML Features](images/prediction_MLfeatures.png)
 
 ### Analytics — Overview
-![Analytics](images/analytics%20overview.png)
+![Analytics](images/analytics_overview.png)
 
 ### Analytics — Insights
-![Insights](images/analytics%20insights.png)
+![Insights](images/analytics_insights.png)
 
 ### Analytics — Data
-![Data](images/analytics%20data.png)
+![Data](images/analytics_data.png)
 
 ### Insights — Tips
-![Tips](images/insights%20tips.png)
+![Tips](images/insights_tips.png)
 
 ### Insights — Rules
-![Rules](images/insights%20rules.png)
+![Rules](images/insights_rules.png)

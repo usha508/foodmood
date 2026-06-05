@@ -267,3 +267,35 @@ Built by a first year undergraduate as an independent ML research project explor
 **License:**
 
 MIT License : free to use, modify, and build upon with attribution.
+
+**UI structure**
+
+### Home
+![Home](images/homescreen.png)
+
+### Prediction — Form & Result
+![Prediction](images/prediction form.png)
+
+### Prediction — Nutrition Breakdown
+![Nutrition](images/prediction nutrition.png)
+
+### Prediction — Why This Prediction?
+![Factors](images/prediction factors.png)
+
+### Prediction — ML Features
+![ML Features](images/prediction MLfeatures.png)
+
+### Analytics — Overview
+![Analytics](images/analytics overview.png)
+
+### Analytics — Mood by Time & Insights
+![Insights](images/analytics insights.png)
+
+### Analytics — Recent Meals
+![Recent Meals](images/analytics data.png)
+
+### Insights — Eating Tips
+![Tips](images/insights tips.png)
+
+### Insights — Golden Rules
+![Rules](images/insights rules.png)

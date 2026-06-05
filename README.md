@@ -270,32 +270,34 @@ MIT License : free to use, modify, and build upon with attribution.
 
 **UI structure**
 
+## 📸 Screenshots
+
 ### Home
 ![Home](images/homescreen.png)
 
 ### Prediction — Form & Result
-![Prediction](images/prediction form.png)
+![Prediction](images/prediction%20form.png)
 
 ### Prediction — Nutrition Breakdown
-![Nutrition](images/prediction nutrition.png)
+![Nutrition](images/prediction%20nutrition.png)
 
 ### Prediction — Why This Prediction?
-![Factors](images/prediction factors.png)
+![Factors](images/prediction%20factors.png)
 
 ### Prediction — ML Features
-![ML Features](images/prediction MLfeatures.png)
+![ML Features](images/prediction%20MLfeatures.png)
 
 ### Analytics — Overview
-![Analytics](images/analytics overview.png)
+![Analytics](images/analytics%20overview.png)
 
-### Analytics — Mood by Time & Insights
-![Insights](images/analytics insights.png)
+### Analytics — Insights
+![Insights](images/analytics%20insights.png)
 
-### Analytics — Recent Meals
-![Recent Meals](images/analytics data.png)
+### Analytics — Data
+![Data](images/analytics%20data.png)
 
-### Insights — Eating Tips
-![Tips](images/insights tips.png)
+### Insights — Tips
+![Tips](images/insights%20tips.png)
 
-### Insights — Golden Rules
-![Rules](images/insights rules.png)
+### Insights — Rules
+![Rules](images/insights%20rules.png)

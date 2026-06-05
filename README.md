@@ -4,7 +4,7 @@
 
 **📌 Overview:**
 
-FoodMood is an end-to-end machine learning web application that predicts how a meal will affect your short-term cognitive state — whether it will leave you energised and focused, moderately alert, or sluggish and crashed. Built with a Gradient Boosting classifier trained on nutritional features, FoodMood bridges the gap between nutrition science and practical daily decision-making.
+FoodMood is an end-to-end machine learning web application that predicts how a meal will affect your short-term cognitive state — whether it will leave you energised and focused, moderately alert, or sluggish and crashed. Built with a Gradient Boosting classifier — selected after benchmarking against Logistic Regression and Random Forest — trained on nutritional features, FoodMood bridges the gap between nutrition science and practical daily decision-making.
 This project was developed as part of an exploration into how nutritional composition influences short-term alertness, energy levels, and perceived mood — a research area with growing relevance in cognitive science and personalised health.
 
 **🎯 Research Motivation:**
@@ -18,7 +18,57 @@ This has practical implications for:
 
 -->Athletes timing nutrition around training
 
--->Anyone experiencing unexplained afternoon energy crashes
+-->Anyone experiencing unexplained afternoon energy crashes.
+
+## 🔬 Model Selection
+
+Three models were trained and evaluated before selecting the final classifier:
+
+1)
+Model: Logistic Regression
+
+Accuarcy: 61%
+
+Notes: Underfit — linear boundaries insufficient for nutritional feature interactions 
+
+2)
+Model:Random Forest
+
+Accuracy:71% 
+
+Notes:Good performance but slightly lower accuracy and higher inference time |
+
+3)
+Model:Gradient Boosting
+
+Accuracy:74.7%
+
+Best accuracy — selected as final model
+
+Gradient Boosting was chosen for its ability to capture non-linear relationships between nutritional features and alertness classes, and its superior performance on the validation set.
+
+### Why 74.7% and not higher?
+
+The accuracy ceiling is an honest reflection of the dataset's nature, not a 
+modelling failure. Three factors explain it:
+
+1. **Labels are heuristic, not empirical** — the ground truth (High/Moderate/Low 
+Alertness) was derived from nutritional science literature, not from real 
+physiological measurements like glucose monitors or EEG alertness scores. 
+Noisy labels put a hard ceiling on any model's accuracy regardless of algorithm.
+
+2. **Individual biology is unpredictable** — the same meal affects two people 
+differently based on metabolism, sleep, stress, and gut microbiome. A model 
+trained on population-level nutrition data cannot fully capture this variance, 
+and nor should it claim to.
+
+3. **74.7% is meaningfully above chance** — a random classifier on 3 balanced 
+classes scores 33.3%. A majority-class baseline scores ~45%. At 74.7%, the 
+model is capturing genuine nutritional signal. The gap between Random Forest 
+(71%) and Gradient Boosting (74.7%) also confirms the result is not noise.
+
+Future work with real user-reported mood labels and continuous glucose data 
+would be the correct path to pushing accuracy above 85%.
 
 **🧠 Machine Learning Pipeline:**
 

@@ -1,11 +1,11 @@
-**🍽️ FoodMood — AI-Powered Nutrition & Mood Intelligence**
+**🍽️ FoodMood — AI Powered Nutrition & Mood Intelligence**
 ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-1.x-red) ![ML](https://img.shields.io/badge/Model-Gradient%20Boosting-green) ![Accuracy](https://img.shields.io/badge/Accuracy-74.7%25-orange)
-> Predict your post-meal alertness, focus, and cognitive energy using machine learning — before you even take a bite.
+> Predict your post meal alertness, focus, and cognitive energy using machine learning (before you even take a bite).
 
 **📌 Overview:**
 
-FoodMood is an end-to-end machine learning web application that predicts how a meal will affect your short-term cognitive state — whether it will leave you energised and focused, moderately alert, or sluggish and crashed. Built with a Gradient Boosting classifier — selected after benchmarking against Logistic Regression and Random Forest — trained on nutritional features, FoodMood bridges the gap between nutrition science and practical daily decision-making.
-This project was developed as part of an exploration into how nutritional composition influences short-term alertness, energy levels, and perceived mood — a research area with growing relevance in cognitive science and personalised health.
+FoodMood is an end to end machine learning web application that predicts how a meal will affect your short term cognitive state whether it will leave you energised and focused, moderately alert, or sluggish and crashed. Built with a Gradient Boosting classifier, selected after benchmarking against Logistic Regression and Random Forest, trained on nutritional features, FoodMood bridges the gap between nutrition science and practical daily decision making.
+This project was developed as part of an exploration into how nutritional composition influences short term alertness, energy levels, and perceived mood a research area with growing relevance in cognitive science and personalised health.
 
 **🎯 Research Motivation:**
 
@@ -20,7 +20,7 @@ This has practical implications for:
 
 -->Anyone experiencing unexplained afternoon energy crashes.
 
-## 🔬 Model Selection
+##  Model Selection
 
 Three models were trained and evaluated before selecting the final classifier:
 
@@ -29,48 +29,48 @@ Model: Logistic Regression
 
 Accuarcy: 61%
 
-Notes: Underfit — linear boundaries insufficient for nutritional feature interactions 
+Notes: Underfit : linear boundaries insufficient for nutritional feature interactions 
 
 2)
 Model:Random Forest
 
 Accuracy:71% 
 
-Notes:Good performance but slightly lower accuracy and higher inference time |
+Notes:Good performance but slightly lower accuracy and higher inference time 
 
 3)
 Model:Gradient Boosting
 
 Accuracy:74.7%
 
-Best accuracy — selected as final model
+Best accuracy : selected as final model
 
-Gradient Boosting was chosen for its ability to capture non-linear relationships between nutritional features and alertness classes, and its superior performance on the validation set.
+Gradient Boosting was chosen for its ability to capture non linear relationships between nutritional features and alertness classes, and its superior performance on the validation set.
 
 ### Why 74.7% and not higher?
 
 The accuracy ceiling is an honest reflection of the dataset's nature, not a 
 modelling failure. Three factors explain it:
 
-1. **Labels are heuristic, not empirical** — the ground truth (High/Moderate/Low 
+1. **Labels are heuristic, not empirical** :the ground truth (High/Moderate/Low 
 Alertness) was derived from nutritional science literature, not from real 
 physiological measurements like glucose monitors or EEG alertness scores. 
 Noisy labels put a hard ceiling on any model's accuracy regardless of algorithm.
 
-2. **Individual biology is unpredictable** — the same meal affects two people 
+2. **Individual biology is unpredictable** : the same meal affects two people 
 differently based on metabolism, sleep, stress, and gut microbiome. A model 
 trained on population-level nutrition data cannot fully capture this variance, 
 and nor should it claim to.
 
-3. **74.7% is meaningfully above chance** — a random classifier on 3 balanced 
-classes scores 33.3%. A majority-class baseline scores ~45%. At 74.7%, the 
+3. **74.7% is meaningfully above chance** : a random classifier on 3 balanced 
+classes scores 33.3%. A majority-class baseline scores 45%. At 74.7%, the 
 model is capturing genuine nutritional signal. The gap between Random Forest 
 (71%) and Gradient Boosting (74.7%) also confirms the result is not noise.
 
-Future work with real user-reported mood labels and continuous glucose data 
+Future work with real user reported mood labels and continuous glucose data 
 would be the correct path to pushing accuracy above 85%.
 
-**🧠 Machine Learning Pipeline:**
+**Machine Learning Pipeline:**
 
 **Model**:
 
@@ -113,13 +113,13 @@ Class	Meaning:
 
 🔴 Low Alertness	High sugar meal — energy spike followed by crash
 
-🖥️ **Application Features:**
+**Application Features:**
 
 **Prediction Page:**
 
 Natural language meal input ("chicken biryani with raita")
 
-Time-of-day aware recommendations
+Time of day aware recommendations
 
 Serving size adjustment (0.5x to 3x)
 
@@ -145,13 +145,13 @@ Most common crash-causing meal identification
 
 **Insights Page:**
 
-Science-backed eating tips by time of day
+Science backed eating tips by time of day
 
 Six golden rules of food and mood
 
 Practical alternatives for common bad choices
 
-🚀 **Getting Started:**
+**Getting Started:**
 
 Prerequisites:
 
@@ -185,7 +185,7 @@ time.sleep(6)
 print(ngrok.connect(8501))'''
 
 
-📁 **Project Structure:**
+**Project Structure:**
 
 foodmood/
 
@@ -206,7 +206,7 @@ foodmood/
 └── README.md
 
 
-📦 **Requirements:**
+**Requirements:**
 
 streamlit
 
@@ -219,51 +219,51 @@ scikit-learn
 joblib
 
 
-✅ **Strengths:**
+**Strengths:**
 
-1)End-to-end pipeline — covers data, feature engineering, model training, and a production-style deployed UI.
+1)End to end pipeline : covers data, feature engineering, model training, and a production-style deployed UI.
 
-2)Explainability — every prediction shows which nutritional features drove the result, not just a label.
+2)Explainability : every prediction shows which nutritional features drove the result, not just a label.
 
-3)Practical framing — targets a real, underexplored problem (short-term cognitive impact of food) rather than a generic classification task.
+3)Practical framing : targets a real, underexplored problem (short-term cognitive impact of food) rather than a generic classification task.
 
-4)Indian food support — includes 20+ Indian dishes (biryani, dal, paneer, roti, idli) rarely found in Western nutrition ML datasets.
+4)Indian food support : includes 20+ Indian dishes (biryani, dal, paneer, roti, idli) rarely found in Western nutrition ML datasets.
 
-5)Personalisation — meal logging and analytics build a personal food-mood profile over time.
+5)Personalisation : meal logging and analytics build a personal food-mood profile over time.
 
-6)Time-aware recommendations — advice changes based on morning/afternoon/evening context.
+6)Time aware recommendations : advice changes based on morning/afternoon/evening context.
 
-⚠️ **Limitations:**
+**Limitations:**
 
-1)Small food database — only 58+ foods are recognised. Mixed or novel meals may not be identified. A production system would integrate a full nutrition API (e.g. USDA FoodData Central, Nutritionix).
+1)Small food database : only 58+ foods are recognised. Mixed or novel meals may not be identified. A production system would integrate a full nutrition API (e.g. USDA FoodData Central, Nutritionix).
 
-2)No ground truth mood labels — the training labels (High/Moderate/Low Alertness) are derived from nutritional science heuristics, not from actual self-reported mood data collected from users. This is the most significant scientific limitation.
+2)No ground truth mood labels : the training labels (High/Moderate/Low Alertness) are derived from nutritional science heuristics, not from actual self-reported mood data collected from users. This is the most significant scientific limitation.
 
-3)Individual variation ignored — factors like gut microbiome, metabolism rate, sleep quality, stress, and medication all affect how food impacts mood. The model treats all users identically.
+3)Individual variation ignored : factors like gut microbiome, metabolism rate, sleep quality, stress, and medication all affect how food impacts mood. The model treats all users identically.
 
-4)No temporal context — the model predicts based on a single meal in isolation. In reality, what you ate 3 hours ago matters too.
+4)No temporal context : the model predicts based on a single meal in isolation. In reality, what you ate 3 hours ago matters too.
 
-5)Binary feature flags — features like 'high_sugar' and 'heavy_meal' use fixed thresholds that may not generalise across all body types and activity levels.
+5)Binary feature flags : features like 'high_sugar' and 'heavy_meal' use fixed thresholds that may not generalise across all body types and activity levels.
 
-6)74.7% accuracy ceiling — performance is limited by the heuristic labels and small food set. A larger dataset with real physiological measurements (glucose monitors, EEG alertness scores) would substantially improve this.
+6)74.7% accuracy ceiling : performance is limited by the heuristic labels and small food set. A larger dataset with real physiological measurements (glucose monitors, EEG alertness scores) would substantially improve this.
 
-🔬 **Future Work:**
-[ ] Integrate USDA FoodData Central API for unlimited food recognition
+ **Future Work:**
+Integrate USDA FoodData Central API for unlimited food recognition
 
-[ ] Collect real user mood labels via post-meal surveys to replace heuristic labels
+Collect real user mood labels via post meal surveys to replace heuristic labels
 
-[ ] Add physiological features (sleep hours, activity level) as user inputs
+Add physiological features (sleep hours, activity level) as user inputs
 
-[ ] Experiment with deep learning on continuous glucose monitoring data
+Experiment with deep learning on continuous glucose monitoring data
 
-[ ] Multi-meal temporal modelling (what you ate today affects tomorrow)
+Multi meal temporal modelling (what you ate today affects tomorrow)
 
-[ ] Expand to 200+ Indian regional foods
+Expand to 200+ Indian regional foods
 
-👤 **Author:**
+**Author:**
 
-Built by a first-year undergraduate as an independent ML research project exploring the intersection of nutrition science and machine learning.
+Built by a first year undergraduate as an independent ML research project exploring the intersection of nutrition science and machine learning.
 
-📄 **License:**
+**License:**
 
-MIT License — free to use, modify, and build upon with attribution.
+MIT License : free to use, modify, and build upon with attribution.

@@ -1,4 +1,4 @@
-**🍽️ FoodMood — AI Powered Nutrition & Mood Intelligence**
+**🍽️ FoodMood — ML-Powered Nutrition & Alertness Prediction**
 ![Python](https://img.shields.io/badge/Python-3.12-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-1.x-red) ![ML](https://img.shields.io/badge/Model-Gradient%20Boosting-green) ![Accuracy](https://img.shields.io/badge/Accuracy-74.7%25-orange)
 > Predict your post meal alertness, focus, and cognitive energy using machine learning (before you even take a bite).
 
@@ -262,7 +262,7 @@ Expand to 200+ Indian regional foods
 
 **Author:**
 
-Built by a first year undergraduate as an independent ML research project exploring the intersection of nutrition science and machine learning.
+Built by **Usha Tejasa Nunepally** as an independent ML research project exploring the intersection of nutrition science and machine learning.
 
 **License:**
 

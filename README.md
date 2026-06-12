@@ -163,7 +163,7 @@ Installation:
 
 bash
 
-git clone https://github.com/YOUR_USERNAME/foodmood.git
+git clone https://github.com/usha508/foodmood.git
 
 cd foodmood
 
